@@ -24,7 +24,7 @@ const logger = createLogger({
 });
 
 function logRequest(req, res, next) {
-    logger.info(`${req.method} ${req.url} ${res.statusCode} ${req.params.usercode}  ${req.ip}`)
+    logger.info(`${req.method} ${req.url} ${res.statusCode} ${req.ip}`)
     next()
 }
 app.use(logRequest);
