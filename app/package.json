@@ -8,7 +8,7 @@
      "scripts": {
           "test": "npx mocha --require babel-register tests/*.js --reporter mocha-junit-reporter --exit",
           "dev": "PORT=8000 npx nodemon --exec npx babel-node --presets babel-preset-env ./server.js",
-          "start": "PORT=3000 npx babel-node --presets babel-preset-env ./server.js"
+          "start": "PORT=3000 node ./server.js"
      },
      "dependencies": {
           "body-parser": "latest",
@@ -16,8 +16,6 @@
           "winston": "latest"
      },
      "devDependencies": {
-          "babel-cli": "^6.26.0",
-          "babel-preset-env": "^1.7.0",
           "chai": "^4.1.2",
           "chai-http": "^4.0.0",
           "mocha": "^8.1.3",
