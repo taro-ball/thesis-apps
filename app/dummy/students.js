@@ -15,5 +15,5 @@ const students = [
       age: 19,
     },
  ];
- export default students;
- 
+ //export default students;
+ module.exports = students;

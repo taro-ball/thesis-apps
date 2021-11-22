@@ -1,6 +1,7 @@
-import express from 'express';
-import bodyParser from 'body-parser';
-import routes from './routes/index';
+const express =  require('express');
+const bodyParser =  require('body-parser');
+const routes =  require('./routes/index');
+
 // Instantiate express
 const app = express();
 // Set our port
@@ -15,4 +16,5 @@ app.listen(port, () => {
     console.log(`Server started on port ${port}`);
 });
 // Export our app for testing purposes
-export default app;
+// export default app;
+module.exports = app;
