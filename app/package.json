@@ -11,8 +11,9 @@
           "start": "PORT=3000 npx babel-node --presets babel-preset-env ./server.js"
      },
      "dependencies": {
-          "body-parser": "^1.18.3",
-          "express": "^4.17.1"
+          "body-parser": "latest",
+          "express": "latest",
+          "winston": "latest"
      },
      "devDependencies": {
           "babel-cli": "^6.26.0",

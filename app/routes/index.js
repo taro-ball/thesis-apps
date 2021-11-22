@@ -7,5 +7,6 @@ routes.get('/api/:id', StudentController.getSingleStudent);
 routes.get('/error', StudentController.throwLazersError);
 routes.get('/bi', StudentController.BuildInfo);
 routes.get('/', StudentController.welcome);
+routes.get('*', StudentController.NotFound);
 //export default routes;
 module.exports = routes;

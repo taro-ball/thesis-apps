@@ -33,6 +33,14 @@ class StudentController {
             throw new Error('lazers offline');
       }
 
+      static NotFound(req, res) {
+            return res.status(404).json({
+                  message: "Sorry can't find that!!!",
+
+            });
+      }
+
+
       static BuildInfo(req, res) {
 
             res.header("Content-Type", 'application/json');
