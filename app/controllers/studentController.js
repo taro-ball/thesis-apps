@@ -1,10 +1,22 @@
 const students = require('../dummy/students.js');
+const os = require('os');
 
 class StudentController {
 
       static welcome(req, res) {
+            //var currentDate = new Date().toISOString();
             return res.status(200).json({
                   message: "Tēnā koutou! Welcome humans! 你好！Добро пожаловать!",
+                  sysinfo: [
+                        { date: new Date().toISOString() },
+                        { node_version: process.version },
+                        { hostname: os.hostname() },
+                        { OS: os.type() },
+                  ],
+                  clientinfo: [
+                        { user_agent: req.get('user-agent') },
+                        { ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress }
+                  ]
             });
       }
       // Get all students
@@ -20,8 +32,8 @@ class StudentController {
             var now = new Date().getTime();
             var loops = 1000;
             var result = 0
-            for (let i = 0; i < loops; i++) { 
-                  result += Math.cbrt((Math.atan(987654321.123456789*Math.random()))+99987654321.123456789*Math.random())
+            for (let i = 0; i < loops; i++) {
+                  result += Math.cbrt((Math.atan(987654321.123456789 * Math.random())) + 99987654321.123456789 * Math.random())
             }
             return res.status(200).json({
                   random: result,
