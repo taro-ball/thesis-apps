@@ -1,4 +1,4 @@
-FROM node:slim
+FROM node:16.13.1-slim
 WORKDIR /app
 ADD ./app /app
 RUN npm install --only=production

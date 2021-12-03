@@ -1,4 +1,3 @@
 node_modules
 npm-debug.log
-app.zip
-app.tar.gz
+*.zip
