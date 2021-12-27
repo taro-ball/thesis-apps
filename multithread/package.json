@@ -1,0 +1,11 @@
+{
+     "name": "student-record",
+     "version": "1.0.0",
+     "description": "An API to manage student record",
+     "main": "index.js",
+     "author": "Rob Zombie",
+     "license": "MIT",
+     "dependencies": {
+          "express": "latest"
+     }
+}
