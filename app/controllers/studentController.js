@@ -1,21 +1,26 @@
 const students = require('../dummy/students.js');
 const os = require('os');
+const crypto = require('crypto');
 
 class StudentController {
 
       static welcome(req, res) {
             //var currentDate = new Date().toISOString();
+            var properties = JSON.stringify(req._readableState) +JSON.stringify(req.headers)+JSON.stringify(req._parsedUrl);
             return res.status(200).json({
-                  message: "Tēnā koutou! Welcome humans! 你好！Добро пожаловать!",
+                  message: "Tēnā koutou! Welcome humans! 你好！Добро пожаловать!ٱلسَّلَامُ عَلَيْكُمْ",
                   sysinfo: [
                         { date: new Date().toISOString() },
                         { node_version: process.version },
-                        { hostname: os.hostname() },
+                        //{ hostname: os.hostname() },
                         { OS: os.type() },
-                  ],
+                  ]
+
+                  ,
                   clientinfo: [
-                        { user_agent: req.get('user-agent') },
-                        { ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress }
+                        //{ user_agent: req.get('user-agent') },
+                        //{ ip: req.headers['x-forwarded-for'] || req.connection.remoteAddress },
+                        { request_fingerprint: crypto.createHash('md5').update(properties).digest("hex") }
                   ]
             });
       }
@@ -29,15 +34,17 @@ class StudentController {
 
       // Generate some CPU load
       static CPUload(req, res) {
-            var now = new Date().getTime();
-            var loops = 1000;
+            
+            var loops = 10000;
             var result = 0
             for (let i = 0; i < loops; i++) {
-                  result += Math.cbrt((Math.atan(987654321.123456789 * Math.random())) + 99987654321.123456789 * Math.random())
+                  result += Math.cbrt((Math.atan(999999999999999 * Math.random())) + 999999999999999 * Math.random())
             }
+            var properties = JSON.stringify(req._readableState) +JSON.stringify(req.headers)+JSON.stringify(req._parsedUrl)+result;
             return res.status(200).json({
-                  random: result,
-                  message: "A random number",
+                  request_fingerprint: crypto.createHash('md5').update(properties).digest("hex"),
+                  message: "A random number hash",
+
             });
 
       }
