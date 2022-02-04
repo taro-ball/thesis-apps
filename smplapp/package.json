@@ -1,0 +1,11 @@
+{
+     "name": "simple-server",
+     "version": "1.0.0",
+     "description": "A simple node app with no dependencies",
+     "main": "simpleserver.js",
+     "author": "Rob Zombie",
+     "license": "MIT",
+     "scripts": {
+          "start": "PORT=3000 node ./simpleserver.js"
+     }
+}
