@@ -6,28 +6,28 @@ const routes =  require('./routes/index');
 const app = express();
 
 // logging
-//const winston = require('winston');
-const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, label, printf } = format;
 
-const myFormat = printf(({ level, message, label, timestamp }) => {
-  return `${timestamp} [${label}] ${level}: ${message}`;
-});
+// const { createLogger, format, transports } = require('winston');
+// const { combine, timestamp, label, printf } = format;
 
-const logger = createLogger({
-  format: combine(
-    label({ label: '' }), //empty label for now
-    timestamp(),
-    myFormat
-  ),
-  transports: [new transports.Console()]
-});
+// const myFormat = printf(({ level, message, label, timestamp }) => {
+//   return `${timestamp} [${label}] ${level}: ${message}`;
+// });
 
-function logRequest(req, res, next) {
-    logger.info(`${req.method} ${req.url} ${res.statusCode} ${req.ip}`)
-    next()
-}
-app.use(logRequest);
+// const logger = createLogger({
+//   format: combine(
+//     label({ label: '' }), //empty label for now
+//     timestamp(),
+//     myFormat
+//   ),
+//   transports: [new transports.Console()]
+// });
+
+// function logRequest(req, res, next) {
+//     logger.info(`${req.method} ${req.url} ${res.statusCode} ${req.ip}`)
+//     next()
+// }
+// app.use(logRequest);
 
 // Set our port
 const port = process.env.PORT || 8080;
