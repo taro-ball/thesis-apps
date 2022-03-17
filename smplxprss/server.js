@@ -3,8 +3,13 @@ const app = express()
 const port = 3000
 
 app.get('/', (req, res) => {
-  num=parseInt(req.params.n, 10)
-  res.send('Hello World! '+num)
+  var num = parseInt(req.query.n, 10)
+  loops = isNaN(num) ? 1 : num;
+  var result = 0;
+
+  for (let i = 0; i < loops; i++) { result += Math.random() * Math.random(); }
+  text="The result of xrss run is :  " + result;
+  res.send(text.substring(44,0))
 })
 
 app.listen(port, () => {
